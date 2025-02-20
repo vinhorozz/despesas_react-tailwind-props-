@@ -1,6 +1,3 @@
-import React from 'react';
-import { Lista } from '../Listas/listas';
-
 export function Sidebar() {
     return (
         <>
@@ -19,8 +16,10 @@ export function Sidebar() {
 
             <div className="sidebar">
                 
-                <div className="px-2 pt-2 pb-3 flex flex-col space-y-1">
-                    <Lista/>                   
+                <div className="px-2 pt-2 pb-3 space-y-1">
+                    <a href="/home" className="text-blue-700 font-bold block">Home</a>                    
+                    <a href="/login" className="text-blue-700 font-bold block">Login</a>
+                    <a href="/sobre" className="text-blue-700 font-bold block">Sobre</a>
                 </div>
                 </div>
           
