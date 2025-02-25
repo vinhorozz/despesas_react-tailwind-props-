@@ -10,11 +10,16 @@ export function MiniMenu(){
 
     return(
         <>
-         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+         <div className=" max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             
                     <div className="absolute inset-y-1 left-1 flex h-10 sm:hidden">
                         {/* Mobile menu button */}
-                        <button  onClick={toggleSidebar} type="button" className=" bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <button                              
+                            className="absolute bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" 
+                            onClick={toggleSidebar} 
+                            type="button" 
+                            aria-controls="mobile-menu" 
+                            aria-expanded="false">
                             
                             
                             <span className="sr-only">Open main menu</span>

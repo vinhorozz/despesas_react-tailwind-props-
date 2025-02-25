@@ -11,9 +11,7 @@ import { Sidebar } from './components/header/SideBar.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  
-  <ResponsiveNavBar/>
-    <AppRouter />   
-    <Footer  />
+    <ResponsiveNavBar/>
+    <AppRouter />
   </StrictMode>
 )

@@ -1,6 +1,5 @@
 import React from "react";
-import { DimanicLink } from "../DinamicLink";
-import { Lista } from "../Listas/listas";
+import { Lista } from "../listas/listas";
 
 export function Navbar() {
     

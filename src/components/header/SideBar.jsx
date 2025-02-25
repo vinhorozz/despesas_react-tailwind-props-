@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lista } from '../Listas/listas';
+import { Lista } from '../listas/listas';
 
 export function Sidebar() {
     return (

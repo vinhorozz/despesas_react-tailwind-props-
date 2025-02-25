@@ -16,7 +16,8 @@ export function Item({ item, onClickItem, onClickDeleteItem }) {
 
     return (
         <div className="flex justify-center">
-            <ul className="w-96 space-y-4 bg-white rounded-md shadow-md p-4">
+            
+            <ul className="w-96 space-y-4 bg-slate-300  rounded-2xl             shadow-md p-4 justify-center flex-col"> 
                 <h1 className="flex justify-center font-bold text-blue-400 p-1">Lista de itens</h1>
                 {Array.isArray(item) && item.map((item) => (
                     <li key={item.id} className="flex gap-1">

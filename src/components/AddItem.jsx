@@ -1,13 +1,14 @@
 
-import React, {useState,useEffect} from "react";
+import React, {useState,useEffect, useRef} from "react";
 import { Input } from "./Input";
-import { use } from "react";
+import { ResponsiveForm } from "./forms/ResponsiveForm";
 
 export function AddItem({onAddItemSubmit}) {
     const[title, setTitle] = useState("");
     const[description, setDescription] = useState("");
     const[value, setValue] = useState("R$ 0,00");
     const[quantity, setQuantity] = useState(0);
+    const titleInputRef=useRef(null);
 
     useEffect(()=>{
 	if(quantity===0 &&(title.trim()||description.trim()||value!== "R$ 0,00")){
@@ -15,6 +16,7 @@ export function AddItem({onAddItemSubmit}) {
 	[title,description,quantity, value]);
 
     function handleAddItem(){
+      
         if  (!title.trim()|| !description.trim()){
             return alert("É necessário adicionar valores")
         }
@@ -30,45 +32,48 @@ export function AddItem({onAddItemSubmit}) {
                 return alert("Por favor, insira valores numéricos válidos para valor e quantidade.");
         }
 
+       
         onAddItemSubmit(title, description, numericValue, numericQuantity);
+    
         setTitle('');
         setDescription('');
         setValue("R$ 0,00");
         setQuantity(0);  
+        if(titleInputRef.current){titleInputRef.current.focus()};
+        
 }
 
     return(
         <>
-        <div>
+     
+
         <ul 
-          className="w-96 space-y-4 bg-slate-300 
-          rounded-md shadow-md p-4 justify-center flex-col"> 
-                <h1 className="font-bold flex justify-center">
-                Adicionar item</h1>
-        <Input placeholder="Digite o título do item"
-                value={title}
-                onChange={(event)=>setTitle(event.target.value)}/>
-                
-        <Input placeholder="Digite a descrição do item"
-                value={description}
-                onChange={(event)=>setDescription(event.target.value)}/>
+                className="w-96 space-y-4 bg-slate-300  rounded-2xl 
+                          shadow-md p-4 justify-center flex-col"> 
+                        <h1 className="font-bold flex justify-center">
+                        Adicionar item</h1>
+                                <Input placeholder="Digite o título do item"
+                                        value={title}
+                                        onChange={(event)=>setTitle(event.target.value)}
+                                        ref={titleInputRef}/>
+                                        
+                                <Input placeholder="Digite a descrição do item"
+                                        value={description}
+                                        onChange={(event)=>setDescription(event.target.value)}/>
 
-       <Input placeholder="Digite o valor do item R$ 0,00"
-                value={(value)}
-                onChange={(event)=>setValue(event.target.value)}/>
+                                <Input placeholder="Digite o valor do item R$ 0,00"
+                                        value={(value)}
+                                        onChange={(event)=>setValue(event.target.value)}/>
 
-        <Input placeholder="Digite a quantidade de itens"
-                value={quantity}
-                onChange={(event)=>setQuantity(event.target.value)}/>
-
-        <button
-                onClick={handleAddItem}
-                
-                className="w-full bg-blue-400 p-2 rounded-md text-white font-bold"
-                >Adicionar
-                </button>
-        </ul>
-        </div>
+                                <Input placeholder="Digite a quantidade de itens"
+                                        value={quantity}
+                                        onChange={(event)=>setQuantity(event.target.value)}/>
+                                <button
+                                        onClick={handleAddItem}                
+                                        className="w-full bg-blue-400 p-2 rounded-md
+                                        text-white font-bold">Adicionar </button>
+                                        
+                </ul>
         </>
     )
 }
